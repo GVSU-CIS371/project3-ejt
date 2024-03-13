@@ -95,4 +95,7 @@ html {
 ul {
   list-style: none;
 }
+label:first-of-type {
+    font-weight: bold;
+}
 </style>
