@@ -3,6 +3,7 @@
     <Beverage :isIced="currentTemp === 'Cold'" />
     <ul>
       <li>
+        <label>Temperature: </label>
         <template v-for="temp in temps" :key="temp">
           <label>
             <input
@@ -16,6 +17,51 @@
           </label>
         </template>
       </li>
+      <li>
+        <label>Creamer: </label>
+        <template v-for="cream in creams" :key="cream">
+          <label>
+            <input
+              type="radio"
+              name="creamer"
+              :id="`r${cream}`"
+              :value="cream"
+              v-model="currentCream"
+            />
+            {{ cream }}
+          </label>
+        </template>
+      </li>
+      <li>
+        <label>Syrup: </label>
+        <template v-for="syrup in syrups" :key="syrup">
+          <label>
+            <input
+              type="radio"
+              name="syrup"
+              :id="`r${syrup}`"
+              :value="syrup"
+              v-model="currentSyrup"
+            />
+            {{ syrup }}
+          </label>
+        </template>
+      </li>
+      <li>
+        <label>Base Beverage: </label>
+        <template v-for="base in bases" :key="base">
+          <label>
+            <input
+              type="radio"
+              name="baseBeverage"
+              :id="`r${base}`"
+              :value="base"
+              v-model="currentBase"
+            />
+            {{ base }}
+          </label>
+        </template>
+      </li>
     </ul>
   </div>
 </template>
@@ -25,7 +71,14 @@ import { ref } from "vue";
 import Beverage from "./components/Beverage.vue";
 // Define reactive data
 const temps = ref(["Hot", "Cold"]);
+const bases = ref(["Coffee", "Black Tea", "Green Tea"]);
+const creams = ref(["None","Milk","Cream","Half & Half"])
+const syrups = ref(["None","Vanilla","Caramel","Hazelnut"])
+
+const currentBase = ref("Coffee");
 const currentTemp = ref("Hot");
+const currentCream = ref("None")
+const currentSyrup = ref("None")
 </script>
 
 <style lang="scss">
