@@ -1,12 +1,9 @@
 <template>
-  <div class="baseBeverage"></div>
+  <div class="baseBeverage" :style="{'backgroundColor': baseColor}"></div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-type Prop = {
-  name: string;
-};
 type BaseBeverage = {
   name: string;
   color: string;
@@ -26,9 +23,24 @@ const Bases: BaseBeverage[] = [
   },
 ];
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Black Tea",
+const emit = defineEmits(['updateColor'])
+const baseColor = computed(() => {
+  const baseFinder = Bases.find(base => base.name === props.name);
+
+  if (baseFinder){
+    emit('updateColor', baseFinder.color)
+    return baseFinder.color;
+  } else {
+    return "#6F4E37";
+  }
 });
+
+const props = defineProps({
+  name: String,
+});
+
+
+
 </script>
 
 <style scoped>

@@ -1,12 +1,9 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :style="{backgroundColor: syrupColor}"></div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-type Prop = {
-  name: string;
-};
 type Syrup = {
   name: string;
   color: string;
@@ -26,14 +23,40 @@ const Syrups: Syrup[] = [
   },
 ];
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Vanilla",
+const props = defineProps({
+  name: String,
+  color: String
+})
+
+const syrupColor = computed(() => {
+  const syrupFinder = Syrups.find(syrup => syrup.name === props.name);
+
+  if (syrupFinder){
+    return syrupFinder.color;
+  } else {
+    return props.color;
+  }
 });
 </script>
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);
   position: relative;
+  width: 100%;
+  height: 20%;
+  animation: pour-tea 2s 1s forwards;
+  z-index: 2;
+}
+.vanilla {
+  transform: translateY(400%);
+  position: relative;
+  background: repeating-linear-gradient(
+    45deg,
+    white,
+    white 10px,
+    rgba(225, 207, 149, 1) 10px,
+    rgba(225, 207, 149, 1) 20px
+  );
   width: 100%;
   height: 20%;
   animation: pour-tea 2s 1s forwards;

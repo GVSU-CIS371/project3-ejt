@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Beverage :isIced="currentTemp === 'Cold'" />
+    <Beverage :isIced="currentTemp === 'Cold'" :creamer="currentCream" :syrup="currentSyrup" :beverage="currentBase"/>
     <ul>
       <li>
-        <label>Temperature: </label>
+        <label style="font-weight: bold;">Temperature: </label>
         <template v-for="temp in temps" :key="temp">
           <label>
             <input
@@ -18,7 +18,7 @@
         </template>
       </li>
       <li>
-        <label>Creamer: </label>
+        <label style="font-weight: bold;">Creamer: </label>
         <template v-for="cream in creams" :key="cream">
           <label>
             <input
@@ -33,7 +33,7 @@
         </template>
       </li>
       <li>
-        <label>Syrup: </label>
+        <label style="font-weight: bold;">Syrup: </label>
         <template v-for="syrup in syrups" :key="syrup">
           <label>
             <input
@@ -48,7 +48,7 @@
         </template>
       </li>
       <li>
-        <label>Base Beverage: </label>
+        <label style="font-weight: bold;">Base Beverage: </label>
         <template v-for="base in bases" :key="base">
           <label>
             <input
