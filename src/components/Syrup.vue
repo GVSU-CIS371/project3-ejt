@@ -11,7 +11,7 @@ type Syrup = {
 const Syrups: Syrup[] = [
   {
     name: "Vanilla",
-    color: "#FFEFD5",
+    color: "repeating-linear-gradient( 45deg, white, white 10px, rgba(225, 207, 149, 1) 10px, rgba(225, 207, 149, 1) 20px)",
   },
   {
     name: "Caramel",
