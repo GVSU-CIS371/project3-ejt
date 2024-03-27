@@ -4,10 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
+  
+    "preview": "vite preview",
+  
+    "build": "vue-tsc && vite build --base=./",
+  
+    "deploy": "gh-pages -d dist"
+  
+   },
   "dependencies": {
     "pinia": "^2.1.7",
     "vue": "^3.4.19"
