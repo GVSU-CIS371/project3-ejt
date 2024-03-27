@@ -11,16 +11,4 @@ export const useBeverageStore = defineStore({
             name: string;
         }[]
     }),
-    actions: {
-        addRecipe(recipe: {temperature: string;
-            creamer: string;
-            syrup: string;
-            base: string;
-            name: string
-        }){
-            this.recipes.push(recipe);
-        },
-    },
-
-
 });

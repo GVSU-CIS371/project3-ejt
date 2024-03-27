@@ -35,7 +35,7 @@
     <ul>
       <template v-for="recipe in recipes" :key="recipe">
           <label class="radio">
-            <input @click="setBeverage(recipe)"
+            <input @click="showBeverage(recipe)"
               type="radio"
               name="Recipe"
               :id="`rRecipe${recipe}`"
@@ -70,18 +70,21 @@ const bevStore = useBeverageStore();
 const recipes = bevStore.recipes
 
 const makeBeverage = () => {
-  const recipe = {
-    temperature: currentTemp.value,
-    creamer: currentCream.value,
-    syrup: currentSyrup.value,
-    base: currentBase.value,
-    name: drinkName.value,
-  }
-  bevStore.addRecipe(recipe);
+
+  bevStore.$patch((state) => {
+    state.recipes.push({
+      temperature: currentTemp.value,
+      creamer: currentCream.value,
+      syrup: currentSyrup.value,
+      base: currentBase.value,
+      name: drinkName.value,
+    })
+  })
+
   drinkName.value = '';
 }
 
-const setBeverage = (recipe: {temperature: string;
+const showBeverage = (recipe: {temperature: string;
             creamer: string;
             syrup: string;
             base: string;
@@ -117,5 +120,6 @@ label:first-of-type {
   align-items: center;
   cursor: pointer;
   margin-right: 10px;
+  font-weight: bold;
 }
 </style>
