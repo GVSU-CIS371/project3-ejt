@@ -101,12 +101,14 @@ const showBeverage = (recipe: {temperature: string;
 body,
 html {
   position: relative;
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   background-color: #6e4228;
   background: linear-gradient(to bottom, #6e4228 0%, #956f5a 100%);
+  color: #253031;
 }
 ul {
   list-style: none;
@@ -115,11 +117,47 @@ label:first-of-type {
     font-weight: bold;
 }
 
+select {
+  background-color: #F2E9DC;
+  color: #253031;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  padding: 7px 10px;
+  display: inline-block;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  min-width: 100px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
+input {
+  background-color: #F2E9DC;
+  color: #253031;
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
+button {
+  background-color: #F2E9DC;
+  color: #253031;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 12px;
+  padding: 8px 15px;
+  font-size: medium;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
 .radio{
   display: flex;
   align-items: center;
   cursor: pointer;
   margin-right: 10px;
   font-weight: bold;
+  padding: 5px 0px;
 }
 </style>
