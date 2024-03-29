@@ -108,7 +108,7 @@ html {
   height: 100%;
   background-color: #6e4228;
   background: linear-gradient(to bottom, #6e4228 0%, #956f5a 100%);
-  color: #253031;
+  color: #F2E9DC;
 }
 ul {
   list-style: none;
